@@ -15,7 +15,7 @@ app.use('/snacks', snackController);
 
 // ROUTES
 app.get('/', (_, res)=>{
-    res.send('Get Snack n at Snack-a-log!')
+    res.send("Get Snack'n at Snack-a-log!")
 })
 
 app.get('*', (_, res)=>{
