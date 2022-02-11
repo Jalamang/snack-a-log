@@ -10,4 +10,30 @@ const getAllSnacks = async () => {
   }
 };
 
-module.exports = { getAllSnacks };
+const getSnack = async () =>{
+  try {
+
+
+  } catch (error){
+
+  }
+}
+const createSnack = async () =>{
+  try {
+
+
+  } catch (error){
+
+  }
+}
+
+
+
+module.exports = { 
+getAllSnacks,
+getSnack,
+deleteSnack,
+createSnack,
+
+
+};
