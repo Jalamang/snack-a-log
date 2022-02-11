@@ -11,7 +11,6 @@ CREATE TABLE snacks (
     added_sugar INT DEFAULT 0, 
     is_healthy BOOLEAN, 
     image TEXT
-
 )
 
 
