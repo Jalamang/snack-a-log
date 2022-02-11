@@ -123,8 +123,7 @@ describe("snacks", () => {
           {
             id: 6,
             name: "Healthy Birthday Cake Square",
-            image:
-              "https://content.nutrisystem.com/images/products/alc/large/BirthdayCakeSquare_L.jpg",
+            image: "https://content.nutrisystem.com/images/products/alc/large/BirthdayCakeSquare_L.jpg",
             fiber: 4,
             protein: 8,
             added_sugar: 19,
@@ -168,9 +167,7 @@ describe("snacks", () => {
         expect(parsedRes.success).toBe(true);
         expect(!!parsedRes.payload.id).toBe(true);
         expect(parsedRes.payload.name).toEqual("Banana");
-        expect(parsedRes.payload.image).toEqual(
-          "https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image"
-        );
+        expect(parsedRes.payload.image).toEqual("https://dummyimage.com/400x400/6e6c6e/e9e9f5.png&text=No+Image");
       });
 
       it("with valid snack name but lowercase - can create a capitalized snack (will NOT capitalize words with 2 letter or less)", async () => {
@@ -262,73 +259,55 @@ describe("snacks", () => {
   describe("Snack Health Check", () => {
     describe("Snack Health: ♥ Enough fiber", () => {
       it("Checks if fiber is above five and added_sugar is below 5", () => {
-        expect(confirmHealth({ protein: 4, fiber: 5, added_sugar: 1 })).toBe(
-          true
-        );
+        expect(confirmHealth({ protein: 4, fiber: 5, added_sugar: 1 })).toBe(true);
       });
     });
 
     describe("Snack Health: ♥ Enough protein", () => {
       it("Checks if protein is above 5 and added_sugar is below 5", () => {
-        expect(confirmHealth({ protein: 6, fiber: 2, added_sugar: 0 })).toBe(
-          true
-        );
+        expect(confirmHealth({ protein: 6, fiber: 2, added_sugar: 0 })).toBe(true);
       });
     });
 
     describe("Snack Health: ♥ Enough fiber and protein", () => {
       it("Checks if protein is above 5 or fiber is above five and added_sugar is below 5", () => {
-        expect(confirmHealth({ protein: 8, fiber: 9, added_sugar: 3 })).toBe(
-          true
-        );
+        expect(confirmHealth({ protein: 8, fiber: 9, added_sugar: 3 })).toBe(true);
       });
     });
 
     describe("Snack Health: ♡ Enough fiber, too much sugar", () => {
       it("Checks if fiber is above five and added_sugar is above 5", () => {
-        expect(confirmHealth({ protein: 2, fiber: 8, added_sugar: 10 })).toBe(
-          false
-        );
+        expect(confirmHealth({ protein: 2, fiber: 8, added_sugar: 10 })).toBe(false);
       });
     });
 
     describe("Snack Health: ♡ Enough protein, too much sugar", () => {
       it("Checks if protein is above 5 and added_sugar is above 5", () => {
-        expect(confirmHealth({ protein: 22, fiber: 3, added_sugar: 11 })).toBe(
-          false
-        );
+        expect(confirmHealth({ protein: 22, fiber: 3, added_sugar: 11 })).toBe(false);
       });
     });
 
     describe("Snack Health: ♡ Enough protein and fiber, too much sugar", () => {
       it("Checks if protein is above 5 and fiber is above five and added_sugar is above 5", () => {
-        expect(confirmHealth({ protein: 5, fiber: 5, added_sugar: 13 })).toBe(
-          false
-        );
+        expect(confirmHealth({ protein: 5, fiber: 5, added_sugar: 13 })).toBe(false);
       });
     });
 
     describe("Snack Health: ♡ Not enough protein nor fiber, too much sugar", () => {
       it("Checks if protein is above 5 and fiber is above five and added_sugar is above 5", () => {
-        expect(confirmHealth({ protein: 1, fiber: 0, added_sugar: 6 })).toBe(
-          false
-        );
+        expect(confirmHealth({ protein: 1, fiber: 0, added_sugar: 6 })).toBe(false);
       });
     });
 
     describe("Snack Health: ♡ Not enough protein nor fiber, nor too much sugar", () => {
       it("Checks if protein is above 5 and fiber is above five and added_sugar is above 5", () => {
-        expect(confirmHealth({ protein: 1, fiber: 0, added_sugar: 2 })).toBe(
-          false
-        );
+        expect(confirmHealth({ protein: 1, fiber: 0, added_sugar: 2 })).toBe(false);
       });
     });
 
     describe("Snack Health: Missing info", () => {
       it("Checks if protein, fiber and added_sugar have valid values", () => {
-        expect(
-          confirmHealth({ protein: "", fiber: "c", added_sugar: null })
-        ).toBe(null);
+        expect(confirmHealth({ protein: "", fiber: "c", added_sugar: null })).toBe(null);
       });
     });
   });
