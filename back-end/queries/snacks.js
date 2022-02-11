@@ -10,6 +10,14 @@ const getAllSnacks = async () => {
   }
 };
 
+const deleteSnack = async () =>{
+  try {
+
+
+  } catch (error){
+
+  }
+}
 const getSnack = async () =>{
   try {
 
