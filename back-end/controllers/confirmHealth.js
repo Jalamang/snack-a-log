@@ -11,7 +11,7 @@ function formatSnackName(name) {
 }
 
 const confirmHealth = (snack) => {
-  if (protein >= 5 || (fibre >= 5 && added_sugar < 5)) {
+  if (protein >= 5 || fibre >= 5 && added_sugar < 5) {
     is_healthy = true;
   }
 

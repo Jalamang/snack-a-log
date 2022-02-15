@@ -20,7 +20,7 @@ snacks.get("/:id", async (req, res) => {
   const { id } = req.params;
   const snack = await getSnack(id);
 
-  snack
+  snack.id
     ? res.status(200).send({ success: true, payload: snacks })
     : res.status(404).json({ success: false, payload: "not found" });
 });
