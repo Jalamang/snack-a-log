@@ -1,9 +1,5 @@
 const express = require("express");
-<<<<<<< HEAD
-// const { confirmHealth, formatSnackName } = require("./confirmHealth");
-=======
 const confirmHealth = require("../confirmHealth.js");
->>>>>>> 3eeea86533152358a15cb900718486d4c8fc8472
 const snacks = express.Router();
 const {
   getAllSnacks,
