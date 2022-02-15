@@ -9,19 +9,21 @@ const SnackDetails = () => {
     name: "",
     fibre: "",
     image: "",
-    is_healthy: "",
-    protein: "",
-    added_sugar: "",
+    is_healthy: 0,
+    protein: 0,
+    added_sugar: 0,
   });
 
   const API = process.env.REACT_APP_API_URL;
+
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       const snackData = await axios.get(API + "/snacks/" + id);
-      setSnack(snackData.data);
+      console.log(snackData.data.payload)
+      setSnack(snackData.data.payload);
     };
     fetchData();
   }, []);
@@ -30,8 +32,8 @@ const SnackDetails = () => {
     const deletePost = async () => {
       await axios.delete(API + "/snacks/" + id);
     };
-    navigate("/snacks/");
     deletePost();
+    navigate("/snacks/");
   };
   const { name, fiber, image, is_healthy, protein, added_sugar } = snack;
   

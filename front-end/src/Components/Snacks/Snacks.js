@@ -11,11 +11,13 @@ const Snacks = () => {
   useEffect(() => {
     const fetchData = async () => {
       const snackData = await axios.get(API + "/snacks");
-      setSnacks(snackData.data);
+      setSnacks(snackData.data.payload);
     };
     fetchData();
   }, []);
+
   console.log(snacks)
+
   const allSnacks = snacks.map(snack => (
     <Snack key={snack.id} snack={snack} />
   ));
