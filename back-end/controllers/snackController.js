@@ -37,6 +37,16 @@ snacks.delete("/:id", async (req, res) => {
   // : res.status(404).json({success: false, payload: undefined });
 });
 
+snacks.put("/:id", async (request, response) => {
+  const { id } = request.params;
+  if (Object.values(request.body)) {
+    const snack = await editSnack(id, request.body);
+    response.status(200).json(snack);
+    return;
+  }
+  response.status(500).json({ error: "server error" });
+});
+
 snacks.post("/", async (req, res) => {
   const { name, fiber, protein, added_sugar, is_healthy, image } = req.body;
   name

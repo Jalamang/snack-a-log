@@ -1,0 +1,9 @@
+.Edit {
+  margin: auto;
+}
+
+.Edit p,
+.Edit form {
+  width: fit-content;
+  margin: auto;
+}
