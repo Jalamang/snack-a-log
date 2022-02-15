@@ -31,7 +31,7 @@ function Edit() {
   }, [URL, id]);
 
   const HandleChange = (event) => {
-    setSnack({ ...snack, [event.target.name]: event.target.value });
+    setSnack({ ...snack, [event.target.id]: event.target.value });
   };
 
   const handleCheckboxChange = () => {
@@ -43,7 +43,7 @@ function Edit() {
 
     axios
       .put(`${URL}/snacks/${id}`, snack)
-      .then(() => navigate(`/`))
+      .then(() => navigate(`/snacks`))
       .catch((error) => console.log("catch", error));
   };
 
@@ -51,40 +51,48 @@ function Edit() {
     <div className="Edit">
       <p>EDIT SNACK</p>
       <form onSubmit={HandleSubmit}>
-        <label className="label" htmlFor="name">
-          snack
+        <label className="name" htmlFor="name" type="text">
+          Name
         </label>
         <br />
-        <input type="text" value={snack.name} name="name" placeholder="name" onChange={HandleChange} />
+        <input type="text" value={snack.name} id="name" placeholder="name" onChange={HandleChange} required />
         <br />
         <br />
 
         <label className="label" htmlFor="fiber">
-          fiber
+          Fiber
         </label>
         <br />
-        <input type="number" value={snack.fiber} name="fiber" placeholder="fiber" onChange={HandleChange} />
+        <input type="number" value={snack.fiber} id="fiber" placeholder="fiber" onChange={HandleChange} required />
         <br />
         <br />
 
         <label className="label" htmlFor="protein">
-          protein
+          Protein
         </label>
         <br />
-        <input type="number" value={snack.protein} name="protein" placeholder="protein" onChange={HandleChange} />
+        <input
+          type="number"
+          value={snack.protein}
+          id="protein"
+          placeholder="protein"
+          onChange={HandleChange}
+          required
+        />
         <br />
         <br />
 
         <label className="label" htmlFor="added_sugar">
-          added_sugar
+          Added Sugar
         </label>
         <br />
         <input
           type="number"
           value={snack.added_sugar}
-          name="added_sugar"
+          id="added_sugar"
           placeholder="added_sugar"
           onChange={HandleChange}
+          required
         />
         <br />
         <br />
@@ -94,10 +102,10 @@ function Edit() {
         <br />
         <br />
         <label className="label" htmlFor="image">
-          image
+          Image
         </label>
         <br />
-        <textarea type="url" value={snack.image} name="image" placeholder="image" onChange={HandleChange} />
+        <textarea type="text" value={snack.image} id="image" placeholder="image" onChange={HandleChange} />
         <br />
         <br />
 
