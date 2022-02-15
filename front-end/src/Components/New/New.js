@@ -6,23 +6,16 @@ import "./New.css";
 function New() {
   const URL = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
-  const [snack, setSnack] = useState([
-    {
-      name: "",
-      fiber: "",
-      protein: "",
-      added_sugar: "",
-      is_healthy: false,
-      image: "",
-    },
-  ]);
+  const [snack, setSnack] = useState({
+    name: "",
+    fiber: "",
+    protein: "",
+    added_sugar: "",
+    image: "",
+  });
 
   const HandleChange = (event) => {
     setSnack({ ...snack, [event.target.id]: event.target.value });
-  };
-
-  const handleCheckboxChange = () => {
-    setSnack({ ...snack, is_healthy: !snack.is_healthy });
   };
 
   const HandleSubmit = (event) => {
@@ -76,10 +69,6 @@ function New() {
         <br />
         <br />
 
-        <label htmlFor="is_healthy">healthy</label>
-        <input id="is_healthy" type="checkbox" onChange={handleCheckboxChange} checked={snack.is_healthy} />
-        <br />
-        <br />
         <label className="label" htmlFor="image">
           Image
         </label>
