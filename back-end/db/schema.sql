@@ -5,7 +5,7 @@ CREATE DATABASE snack_a_log;
 
 CREATE TABLE snacks (
     id SERIAL PRIMaRY KEY,
-    name TEXT, 
+    name TEXT NOT NULL, 
     fiber INT DEFAULT 0, 
     protein INT DEFAULT 0, 
     added_sugar INT DEFAULT 0, 

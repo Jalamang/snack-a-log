@@ -32,7 +32,7 @@ const getSnack = async (id) => {
 };
 
 const createSnack = async (snack) => {
-  console.log(snack)
+  
   const { name, fiber, protein, added_sugar, is_healthy, image } = snack;
   try {
     const newSnack = await db.one(
