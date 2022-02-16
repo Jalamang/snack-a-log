@@ -6,7 +6,7 @@ INSERT INTO snacks ( name, fiber, protein, added_sugar, is_healthy, image) VALUE
 ('Honey Covered Granola',  30, 12, 22, false, 'https://picsum.photos/id/312/300/300'),
 ('New Wave Nuts', 11, 55, 9, true, 'https://picsum.photos/id/139/300/300'),
 ('Raw Onions & Turnips', 11, 9, 9, true, 'https://picsum.photos/id/292/300/300'),
-('Healthy Birthday Cake Square', 4, 8, 19, true, 'https://content.nutrisystem.com/images/products/alc/large/BirthdayCakeSquare_L.jpg');
+('Healthy Birthday Cake Square', 4, 8, 19, false, 'https://content.nutrisystem.com/images/products/alc/large/BirthdayCakeSquare_L.jpg');
 
 -- use advanced image search to choose images that are square (aspect ratio)
 -- https://www.google.com/advanced_image_search

@@ -1,17 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Snacks from "../Snacks/Snacks"
+import React from "react";
+import Snacks from "../Snacks/Snacks";
+import "./Index.css"
 
 const Index = () => {
   return (
     <div>
-
-<div className="new">
-        <Link to="/snacks/new">New Snack</Link>
+      <h1 >
         <Snacks />
-      </div> 
+      </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Index
+export default Index;

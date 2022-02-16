@@ -14,29 +14,35 @@ const SnackDetails = () => {
     added_sugar: 0,
   });
 
-  const API = process.env.REACT_APP_API_URL;
+  const URL = process.env.REACT_APP_API_URL;
 
   const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
-      const snackData = await axios.get(API + "/snacks/" + id);
-      console.log(snackData.data.payload)
+      const snackData = await axios.get(URL + "/snacks/" + id);
+      console.log(snackData.data.payload);
       setSnack(snackData.data.payload);
     };
     fetchData();
   }, []);
 
-  const handleDelete = () => {
-    const deletePost = async () => {
-      await axios.delete(API + "/snacks/" + id);
-    };
-    deletePost();
-    navigate("/snacks/");
+  // const handleDelete = () => {
+  //   const deleteSnack = async () => {
+  //     await axios.delete(URL + "/snacks/" + id);
+  //   };
+  //   deleteSnack();
+  //   navigate("/snacks/");
+  // };
+
+  const handleDelete = async () => {
+    await axios.delete(URL + "/snacks/" + id);
+    navigate("/snacks");
   };
+
   const { name, fiber, image, is_healthy, protein, added_sugar } = snack;
-  
+
   return (
     <>
       <article>
@@ -51,10 +57,21 @@ const SnackDetails = () => {
           <img src={image} alt={snack.name} />
           <h6>Fiber: {fiber}</h6>
           <h6>Protein: {protein}</h6>
+          <h6>Added Sugar: {added_sugar}</h6>
         </div>
         <div className="showNavigation">
           <div>
-            <button onClick={() => navigate("/snacks/")}>Back</button>
+          <a href="/snacks"> <button>
+         Back
+         </button></a>
+          {/* onClick={() => navigate(`/snacks`)} */}
+         
+          </div>
+          <div>
+            <button onClick={() => navigate("/snacks/" + id + "/edit")}>
+              {" "}
+              Edit{" "}
+            </button>
           </div>
           <div>
             <button onClick={handleDelete}>Delete</button>

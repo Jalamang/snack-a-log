@@ -3,25 +3,23 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import Snack from "../Snack/Snack";
 
-const API = process.env.REACT_APP_API_URL;
+const URL = process.env.REACT_APP_API_URL;
 
 const Snacks = () => {
   const [snacks, setSnacks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const snackData = await axios.get(API + "/snacks");
+      const snackData = await axios.get(URL + "/snacks");
       setSnacks(snackData.data.payload);
     };
     fetchData();
   }, []);
 
-  console.log(snacks)
-
   const allSnacks = snacks.map(snack => (
     <Snack key={snack.id} snack={snack} />
   ));
-  return <>{allSnacks}</>;
+  return <section className="Snacks">{allSnacks}</section>;
 };
 
 export default Snacks;
