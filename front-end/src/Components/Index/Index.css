@@ -52,6 +52,10 @@ margin: 0;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 15px;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.73em;
+    grid-auto-rows: minmax(100px, auto); */
 }
 
 .Snacks div {
