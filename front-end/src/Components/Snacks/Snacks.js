@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Snack from "../Snack/Snack";
+// import "./Snacks.css"
 
 const URL = process.env.REACT_APP_API_URL;
 
@@ -15,7 +16,7 @@ const Snacks = () => {
     };
     fetchData();
   }, []);
-
+console.log(snacks)
   const allSnacks = snacks.map(snack => (
     <Snack key={snack.id} snack={snack} />
   ));
