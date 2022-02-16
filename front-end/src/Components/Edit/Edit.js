@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Edit.css";
+import HeartHealth from "../HeartHealth";
 
 function Edit() {
   const URL = process.env.REACT_APP_API_URL;
@@ -12,6 +13,7 @@ function Edit() {
     fiber: "",
     protein: "",
     added_sugar: "",
+    is_healthy: "",
     image: "",
   });
 
@@ -38,16 +40,31 @@ function Edit() {
       .then(() => navigate(`/snacks`))
       .catch((error) => console.log("catch", error));
   };
-
+  const isItHealthy = snack.is_healthy ? (
+    <p> this snack is healthy</p>
+  ) : (
+    <p>this snack is not healthy</p>
+  );
   return (
     <div className="Edit">
       <p>EDIT SNACK</p>
+      <div>
+      {isItHealthy}
+        <HeartHealth snackHealth={snack.is_healthy} />
+      </div>
       <form onSubmit={HandleSubmit}>
         <label className="name" htmlFor="name" type="text">
           Name
         </label>
         <br />
-        <input type="text" value={snack.name} id="name" placeholder="name" onChange={HandleChange} required />
+        <input
+          type="text"
+          value={snack.name}
+          id="name"
+          placeholder="name"
+          onChange={HandleChange}
+          required
+        />
         <br />
         <br />
 
@@ -55,7 +72,14 @@ function Edit() {
           Fiber
         </label>
         <br />
-        <input type="number" value={snack.fiber} id="fiber" placeholder="fiber" onChange={HandleChange} required />
+        <input
+          type="number"
+          value={snack.fiber}
+          id="fiber"
+          placeholder="fiber"
+          onChange={HandleChange}
+          required
+        />
         <br />
         <br />
 
@@ -93,7 +117,13 @@ function Edit() {
           Image
         </label>
         <br />
-        <textarea type="text" value={snack.image} id="image" placeholder="image" onChange={HandleChange} />
+        <textarea
+          type="text"
+          value={snack.image}
+          id="image"
+          placeholder="image"
+          onChange={HandleChange}
+        />
         <br />
         <br />
 

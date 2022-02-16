@@ -4,8 +4,8 @@ CREATE DATABASE snack_a_log;
 \c snack_a_log; 
 
 CREATE TABLE snacks (
-    id SERIAL PRIMARY KEY, 
-    name TEXT, 
+    id SERIAL PRIMaRY KEY,
+    name TEXT NOT NULL, 
     fiber INT DEFAULT 0, 
     protein INT DEFAULT 0, 
     added_sugar INT DEFAULT 0, 
