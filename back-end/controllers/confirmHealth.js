@@ -3,7 +3,6 @@ const confirmHealth = (snack) => {
   if ((protein >= 5 || fiber >= 5) && added_sugar < 5) {
     return true;
   }
-
   if (isNaN(protein) || isNaN(fiber) || isNaN(added_sugar)) {
     return null;
   }
@@ -12,5 +11,4 @@ const confirmHealth = (snack) => {
   }
   return false;
 };
-
 module.exports = confirmHealth;

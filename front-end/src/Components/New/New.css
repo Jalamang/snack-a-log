@@ -1,0 +1,9 @@
+.New {
+  margin: auto;
+}
+
+.New p,
+.New form {
+  width: fit-content;
+  margin: auto;
+}
